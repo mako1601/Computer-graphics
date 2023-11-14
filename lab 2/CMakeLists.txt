@@ -21,31 +21,33 @@ set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 set(GLFW_INSTALL OFF CACHE BOOL "" FORCE)
 
-add_subdirectory(external/glfw)
+get_filename_component(PARENT_DIR ${CMAKE_SOURCE_DIR}/.. ABSOLUTE)
+
+add_subdirectory(${PARENT_DIR}/external/glfw ${CMAKE_BINARY_DIR}/glfw)
 target_link_libraries(${PROJECT_NAME} glfw)
 
-add_subdirectory(external/glad)
+add_subdirectory(${PARENT_DIR}/external/glad ${CMAKE_BINARY_DIR}/glad)
 target_link_libraries(${PROJECT_NAME} glad)
 
-add_subdirectory(external/glm)
+add_subdirectory(${PARENT_DIR}/external/glm ${CMAKE_BINARY_DIR}/glm)
 target_link_libraries(${PROJECT_NAME} glm)
 
-add_subdirectory(external/freetype)
+add_subdirectory(${PARENT_DIR}/external/freetype ${CMAKE_BINARY_DIR}/freetype)
 target_link_libraries(${PROJECT_NAME} freetype)
 
 set(IMGUI_INCLUDES
-	external/imgui/imgui.h
-	external/imgui/backends/imgui_impl_glfw.h
-	external/imgui/backends/imgui_impl_opengl3.h
+	../external/imgui/imgui.h
+	../external/imgui/backends/imgui_impl_glfw.h
+	../external/imgui/backends/imgui_impl_opengl3.h
 )
 
 set(IMGUI_SOURCES
-	external/imgui/imgui.cpp
-	external/imgui/backends/imgui_impl_glfw.cpp
-	external/imgui/backends/imgui_impl_opengl3.cpp
-	external/imgui/imgui_tables.cpp
-	external/imgui/imgui_widgets.cpp
-	external/imgui/imgui_draw.cpp
+	../external/imgui/imgui.cpp
+	../external/imgui/backends/imgui_impl_glfw.cpp
+	../external/imgui/backends/imgui_impl_opengl3.cpp
+	../external/imgui/imgui_tables.cpp
+	../external/imgui/imgui_widgets.cpp
+	../external/imgui/imgui_draw.cpp
 )
 
 add_library(imgui STATIC
@@ -53,8 +55,8 @@ add_library(imgui STATIC
 	${IMGUI_SOURCES}
 )
 
-target_include_directories(imgui PUBLIC external)
-target_include_directories(imgui PUBLIC external/imgui)
+target_include_directories(imgui PUBLIC ../external)
+target_include_directories(imgui PUBLIC ../external/imgui)
 target_link_libraries(imgui PRIVATE glad glfw)
 
 target_link_libraries(${PROJECT_NAME} imgui)
