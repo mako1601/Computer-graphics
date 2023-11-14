@@ -40,6 +40,10 @@ Window::Window(GLsizei width, GLsizei height, const std::string& title) {
 
     glEnable(GL_DEPTH_TEST);
 
+    // for render text
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
     std::cout << "Renderer: " << glGetString(GL_RENDERER) << std::endl;
     std::cout << "OpenGL version: " << glGetString(GL_VERSION) << std::endl;
     std::cout << "Resolution: " << Width << "x" << Height << std::endl;
@@ -118,6 +122,7 @@ void Window::mouseButtonCallback(int button, int action, int mods) {
     if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE) {
         if (EnableCursor) {
             glfwSetInputMode(pWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+            FirstMouse = true;
             EnableCursor = false;
         }
         else {

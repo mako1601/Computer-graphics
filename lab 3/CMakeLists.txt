@@ -11,6 +11,7 @@ add_executable(${PROJECT_NAME}
 	src/Window.cpp
 	src/Camera.h
 	src/Camera.cpp
+	src/TextRenderer.h
 )
 
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})

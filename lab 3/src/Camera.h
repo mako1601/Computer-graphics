@@ -16,14 +16,14 @@ enum class Movement {
 class Camera {
 public:
     // camera attributes
-    glm::vec3 Position{ 0.0f, 0.25f, 1.5f };
+    glm::vec3 Position{ 1.3f, 1.7f, 3.0f };
     glm::vec3 Front{ 0.0f, 0.0f, -1.0f };
     glm::vec3 Up;
     glm::vec3 Right;
     glm::vec3 WorldUp{ 0.0f, 1.0f, 0.0f };
     // euler angles
-    float Yaw   = -90.0f;
-    float Pitch = 0.0f;
+    float Yaw = -112.0f;
+    float Pitch = -30.0f;
     // camera options
     float MovementSpeed = 2.5f;
     float Sensitivity   = 0.15f;
@@ -35,8 +35,6 @@ public:
     void ProcessKeyboard(Movement direction, float deltaTime);
     void ProcessMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch = true);
     void ProcessMouseScroll(float yoffset);
-
-private:
     void updateCameraVectors();
 };
 
