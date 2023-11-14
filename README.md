@@ -14,9 +14,12 @@ Implement transformations of a figure on a plane:
 - reflection
 - rotation
 
+![](lab2.png)
+
 \* – I decided not to post the first work, the functions used for it are in [DrawFuntions](
 https://github.com/mako1601/Computer-graphics/blob/master/lab%202/src/DrawFuntions.h).
 
 ### Third lab
 Create a parallel oblique projection onto a plane parallel to Oxy.<br/>
 User can switch between top view, front view, right view and visual projection.
+![](lab3.png)
