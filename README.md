@@ -18,5 +18,5 @@ Implement transformations of a figure on a plane:
 https://github.com/mako1601/Computer-graphics/blob/master/lab%202/src/DrawFuntions.h).
 
 ### Third lab
-Create a parallel oblique projection onto a plane parallel to Oxy.
+Create a parallel oblique projection onto a plane parallel to Oxy.<br/>
 User can switch between top view, front view, right view and visual projection.
