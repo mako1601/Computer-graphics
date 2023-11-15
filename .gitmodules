@@ -1,1 +1,9 @@
-[submodule "freetype"]	path = external/freetype	url = https://github.com/freetype/freetype.git[submodule "glfw"]	path = external/glfw	url = https://github.com/glfw/glfw.git[submodule "glm"]	path = external/glm	url = https://github.com/g-truc/glm.git[submodule "imgui"]	path = external/imgui	url = https://github.com/ocornut/imgui.git
+[submodule "external/freetype"]
+	path = external/freetype
+	url = https://github.com/freetype/freetype.git
+[submodule "external/glfw"]
+	path = external/glfw
+	url = https://github.com/glfw/glfw.git
+[submodule "external/glm"]
+	path = external/glm
+	url = https://github.com/g-truc/glm.git
