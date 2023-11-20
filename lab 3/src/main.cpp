@@ -167,7 +167,9 @@ int main() {
         glm::mat4 view         = glm::lookAt(window.Camera.Position, window.Camera.Position + window.Camera.Front, window.Camera.Up);
         glm::mat4 model        = glm::mat4(1.0f);
         glm::mat4 pyramidModel = glm::translate(model, glm::vec3(0.75f, 0.0f, 0.75f));
-        //pyramidModel           = glm::rotate(pyramidModel, static_cast<float>(glfwGetTime()) / 5.0f, glm::vec3(0.0f, 0.5f, 0.0f));
+        //pyramidModel           = glm::rotate(pyramidModel, static_cast<float>(glfwGetTime()) / 5.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+
+        float ratio = static_cast<float>(window.Width) / static_cast<float>(window.Height);
 
         switch (cameraState) {
             case 1: // perspective
@@ -181,7 +183,7 @@ int main() {
                 cameraPos = window.Camera.Position;
                 yam = window.Camera.Yaw;
                 pitch = window.Camera.Pitch;
-                projection = glm::perspective(glm::radians(window.Camera.Zoom), static_cast<float>(window.Width) / static_cast<float>(window.Height), 0.001f, 100.0f);
+                projection = glm::perspective(glm::radians(window.Camera.Zoom), ratio, 0.001f, 100.0f);
                 renderAllTextPerspective(text, projection, view);
                 break;
             case 2: // front (ortho)
@@ -191,7 +193,7 @@ int main() {
                     pitch = window.Camera.Pitch;
                     firstPerspective = false;
                 }
-                projection = glm::ortho(-1.0f * static_cast<float>(window.Width) / static_cast<float>(window.Height), 1.0f * static_cast<float>(window.Width) / static_cast<float>(window.Height), -1.0f, 1.0f, 0.001f, 100.0f);
+                projection = glm::ortho(-1.0f * ratio, 1.0f * ratio, -1.0f, 1.0f, 0.001f, 100.0f);
                 window.Camera.Position = glm::vec3(0.75f, 0.5f, 10.0f);
                 window.Camera.Yaw = -90.0f;
                 window.Camera.Pitch = 0.0f;
@@ -205,7 +207,7 @@ int main() {
                     pitch = window.Camera.Pitch;
                     firstPerspective = false;
                 }
-                projection = glm::ortho(-1.0f * static_cast<float>(window.Width) / static_cast<float>(window.Height), 1.0f * static_cast<float>(window.Width) / static_cast<float>(window.Height), -1.0f, 1.0f, 0.001f, 100.0f);
+                projection = glm::ortho(-1.0f * ratio, 1.0f * ratio, -1.0f, 1.0f, 0.001f, 100.0f);
                 pyramidModel = glm::rotate(pyramidModel, glm::radians(angle), glm::vec3(0.0f, 0.0f, 1.0f));
                 window.Camera.Position = glm::vec3(0.75f, 10.0f, 0.75f);
                 window.Camera.Yaw = 0.0f;
@@ -220,7 +222,7 @@ int main() {
                     pitch = window.Camera.Pitch;
                     firstPerspective = false;
                 }
-                projection = glm::ortho(-1.0f * static_cast<float>(window.Width) / static_cast<float>(window.Height), 1.0f * static_cast<float>(window.Width) / static_cast<float>(window.Height), -1.0f, 1.0f, 0.001f, 100.0f);
+                projection = glm::ortho(-1.0f * ratio, 1.0f * ratio, -1.0f, 1.0f, 0.001f, 100.0f);
                 window.Camera.Position = glm::vec3(10.0f, 0.5f, 0.75f);
                 window.Camera.Yaw = -180.0f;
                 window.Camera.Pitch = 0.0f;
@@ -262,7 +264,7 @@ int main() {
         ImGui::RadioButton("Perspective", &cameraState, 1);
         ImGui::RadioButton("Front", &cameraState, 2);
         ImGui::RadioButton("Up", &cameraState, 3); ImGui::SameLine();
-        ImGui::InputFloat("Angle", &angle, 1.0f);
+        ImGui::SliderFloat("Angle", &angle, -180.0f, 180.0f);
         ImGui::RadioButton("Side", &cameraState, 4);
         ImGui::Separator();
         ImGui::Text("Pitch"); ImGui::SameLine();
