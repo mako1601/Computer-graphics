@@ -312,6 +312,9 @@ int main() {
         }
         /* --------- */
 
+        glDeleteVertexArrays(1, &crosshairVAO);
+        glDeleteBuffers(1, &crosshairVBO);
+
         glfwSwapBuffers(window.pWindow);
         glfwPollEvents();
     }
