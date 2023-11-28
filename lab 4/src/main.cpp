@@ -302,6 +302,19 @@ int main() {
         ImGui::Text(std::to_string(1.0f / window.DeltaTime).c_str());
         ImGui::End();
 
+        ImGui::Begin("Vertices");
+        float green[3]   = { window.Vertices.at(0).x, window.Vertices.at(0).y, window.Vertices.at(0).z };
+        float blue[3]    = { window.Vertices.at(1).x, window.Vertices.at(1).y, window.Vertices.at(1).z };
+        float red[3]     = { window.Vertices.at(2).x, window.Vertices.at(2).y, window.Vertices.at(2).z };
+        float yellow[3]  = { window.Vertices.at(4).x, window.Vertices.at(4).y, window.Vertices.at(4).z };
+        float magenta[3] = { window.Vertices.at(8).x, window.Vertices.at(8).y, window.Vertices.at(8).z };
+        ImGui::InputFloat3("Green", green, "%.3f", ImGuiInputTextFlags_ReadOnly);
+        ImGui::InputFloat3("Blue", blue, "%.3f", ImGuiInputTextFlags_ReadOnly);
+        ImGui::InputFloat3("Red", red, "%.3f", ImGuiInputTextFlags_ReadOnly);
+        ImGui::InputFloat3("Yellow", yellow, "%.3f", ImGuiInputTextFlags_ReadOnly);
+        ImGui::InputFloat3("Magenta", magenta, "%.3f", ImGuiInputTextFlags_ReadOnly);
+        ImGui::End();
+
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         if (ImGui::GetIO().ConfigFlags & ImGuiConfigFlags_ViewportsEnable) {

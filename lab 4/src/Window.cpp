@@ -65,23 +65,25 @@ void Window::keyCallback(GLFWwindow* window) {
         glfwSetWindowShouldClose(window, true);
     }
 
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-        Camera.ProcessKeyboard(Movement::FORWARD, DeltaTime);
-    }
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-        Camera.ProcessKeyboard(Movement::BACKWARD, DeltaTime);
-    }
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-        Camera.ProcessKeyboard(Movement::LEFT, DeltaTime);
-    }
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-        Camera.ProcessKeyboard(Movement::RIGHT, DeltaTime);
-    }
-    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
-        Camera.ProcessKeyboard(Movement::UP, DeltaTime);
-    }
-    if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) {
-        Camera.ProcessKeyboard(Movement::DOWN, DeltaTime);
+    if (!EnableCursor) {
+        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+            Camera.ProcessKeyboard(Movement::FORWARD, DeltaTime);
+        }
+        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+            Camera.ProcessKeyboard(Movement::BACKWARD, DeltaTime);
+        }
+        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+            Camera.ProcessKeyboard(Movement::LEFT, DeltaTime);
+        }
+        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+            Camera.ProcessKeyboard(Movement::RIGHT, DeltaTime);
+        }
+        if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
+            Camera.ProcessKeyboard(Movement::UP, DeltaTime);
+        }
+        if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) {
+            Camera.ProcessKeyboard(Movement::DOWN, DeltaTime);
+        }
     }
 }
 
