@@ -23,6 +23,8 @@ set(GLFW_INSTALL OFF CACHE BOOL "" FORCE)
 
 get_filename_component(PARENT_DIR ${CMAKE_SOURCE_DIR}/.. ABSOLUTE)
 
+file(COPY resources DESTINATION ${CMAKE_BINARY_DIR})
+
 add_subdirectory(${PARENT_DIR}/external/glfw ${CMAKE_BINARY_DIR}/glfw)
 target_link_libraries(${PROJECT_NAME} glfw)
 
@@ -58,5 +60,4 @@ add_library(imgui STATIC
 target_include_directories(imgui PUBLIC ../external)
 target_include_directories(imgui PUBLIC ../external/imgui)
 target_link_libraries(imgui PRIVATE glad glfw)
-
 target_link_libraries(${PROJECT_NAME} imgui)

@@ -36,11 +36,11 @@ int main() {
     ImGui_ImplGlfw_InitForOpenGL(Window1.window, true);
 
     // shaders
-    ShaderProgram pen("..\\resources\\shader.vs", "..\\resources\\shader.fs");
+    ShaderProgram pen("resources\\shader.vs", "resources\\shader.fs");
     pen.use();
     drawCartesian();
 
-    ShaderProgram text("..\\resources\\text.vs", "..\\resources\\text.fs");
+    ShaderProgram text("resources\\text.vs", "resources\\text.fs");
     text.use();
     initFreeType();
 

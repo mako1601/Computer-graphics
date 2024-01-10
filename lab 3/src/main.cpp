@@ -32,7 +32,7 @@ int main() {
     ImGui_ImplGlfw_InitForOpenGL(window.pWindow, true);
 
     // shaders
-    ShaderProgram pyramidShader("..\\resources\\shader.vs", "..\\resources\\shader.fs");
+    ShaderProgram pyramidShader("resources\\shader.vs", "resources\\shader.fs");
 
     GLfloat pyramidVertices[] = {
         // positions         // colors
@@ -139,7 +139,7 @@ int main() {
 
     pyramidShader.use();
 
-    ShaderProgram text("..\\resources\\text.vs", "..\\resources\\text.fs");
+    ShaderProgram text("resources\\text.vs", "resources\\text.fs");
     text.use();
     initFreeType();
 
