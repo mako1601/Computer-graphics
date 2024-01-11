@@ -8,11 +8,7 @@ Computer Graphics lab work will be posted in this repository.
 
 ## Installation
 1. git clone --recurse-submodules https://github.com/mako1601/Computer-graphics.git
-2. cd "Computer-graphics/lab 2"
-3. mkdir build
-4. cd build
-5. cmake ..
-6. repeat 2-5 to create other labs
+2. create the build where you want
 
 ## Task
 ### Second lab*
